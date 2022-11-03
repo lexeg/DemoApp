@@ -2,6 +2,7 @@
 using DemoApp.DataAccess.Repositories;
 using System.Configuration;
 using System.Windows;
+using DemoApp.DataAccess.Contexts;
 
 namespace DemoApp
 {

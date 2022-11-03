@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using DemoApp.DataAccess.Contexts;
+using DemoApp.DataAccess.Entities;
 
 namespace DemoApp.DataAccess.Repositories
 {

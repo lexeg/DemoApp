@@ -1,6 +1,6 @@
-namespace DemoApp.DataAccess
+namespace DemoApp.DataAccess.Entities
 {
-    public partial class StudentCourses
+    public class StudentCourses
     {
         public int id { get; set; }
 

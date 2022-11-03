@@ -1,4 +1,6 @@
-﻿namespace DemoApp.DataAccess.Repositories
+﻿using DemoApp.DataAccess.Entities;
+
+namespace DemoApp.DataAccess.Repositories
 {
     public interface IStudentRepository
     {

@@ -1,8 +1,9 @@
 using System.Data.Entity;
+using DemoApp.DataAccess.Entities;
 
-namespace DemoApp.DataAccess
+namespace DemoApp.DataAccess.Contexts
 {
-    public partial class StudentsDbContext : DbContext
+    public class StudentsDbContext : DbContext
     {
         public StudentsDbContext(string connectionString): base(connectionString)
         {
