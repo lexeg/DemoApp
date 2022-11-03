@@ -9,21 +9,21 @@ namespace DemoApp.DataAccess.Contexts
         {
         }
 
-        public virtual DbSet<Courses> Courses { get; set; }
-        public virtual DbSet<StudentCourses> StudentCourses { get; set; }
-        public virtual DbSet<Students> Students { get; set; }
+        public virtual DbSet<CourseEntity> Courses { get; set; }
+        public virtual DbSet<StudentCoursesEntity> StudentCourses { get; set; }
+        public virtual DbSet<StudentEntity> Students { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Courses>()
+            modelBuilder.Entity<CourseEntity>()
                 .HasMany(e => e.StudentCourses)
                 .WithRequired(e => e.Courses)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Students>()
+            modelBuilder.Entity<StudentEntity>()
                 .HasMany(e => e.StudentCourses)
                 .WithRequired(e => e.Students)
-                .HasForeignKey(e => e.studentId)
+                .HasForeignKey(e => e.StudentId)
                 .WillCascadeOnDelete(false);
         }
     }

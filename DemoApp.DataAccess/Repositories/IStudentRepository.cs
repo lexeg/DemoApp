@@ -4,9 +4,9 @@ namespace DemoApp.DataAccess.Repositories
 {
     public interface IStudentRepository
     {
-        Students[] GetStudents();
-        void Create(Students student);
-        int Update(Students student);
+        StudentEntity[] GetStudents();
+        void Create(StudentEntity studentEntity);
+        int Update(StudentEntity studentEntity);
         int Delete(int studentId);
     }
 }

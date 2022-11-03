@@ -6,43 +6,43 @@ namespace DemoApp.DataAccess.Repositories
 {
     public class StudentRepository : IStudentRepository
     {
-        private readonly StudentsDbContext studentsDbContext;
+        private readonly StudentsDbContext _studentsDbContext;
 
         public StudentRepository(StudentsDbContext studentsDbContext)
         {
-            this.studentsDbContext = studentsDbContext;
+            this._studentsDbContext = studentsDbContext;
         }
 
-        public void Create(Students student)
+        public void Create(StudentEntity studentEntity)
         {
-            studentsDbContext.Students.Add(student);
-            studentsDbContext.SaveChanges();
+            _studentsDbContext.Students.Add(studentEntity);
+            _studentsDbContext.SaveChanges();
         }
 
         public int Delete(int studentId)
         {
-            var student = studentsDbContext
+            var student = _studentsDbContext
                 .Students
-                .FirstOrDefault(s => s.id == studentId);
+                .FirstOrDefault(s => s.Id == studentId);
             if(student==null) return 0;
-            var result = studentsDbContext.Students.Remove(student);
-            studentsDbContext.SaveChanges();
-            return result.id;
+            var result = _studentsDbContext.Students.Remove(student);
+            _studentsDbContext.SaveChanges();
+            return result.Id;
         }
 
-        public Students[] GetStudents()
+        public StudentEntity[] GetStudents()
         {
-            return studentsDbContext.Students.ToArray();
+            return _studentsDbContext.Students.ToArray();
         }
 
-        public int Update(Students student)
+        public int Update(StudentEntity studentEntity)
         {
-            var s = studentsDbContext.Students.FirstOrDefault(x => x.id == student.id);
+            var s = _studentsDbContext.Students.FirstOrDefault(x => x.Id == studentEntity.Id);
             if (s == null) return 0;
-            s.name = student.name;
-            s.address = student.address;
-            s.gender = student.gender;
-            s.dateBirth = student.dateBirth;
+            s.Name = studentEntity.Name;
+            s.Address = studentEntity.Address;
+            s.Gender = studentEntity.Gender;
+            s.DateBirth = studentEntity.DateBirth;
             return 1;
         }
     }
